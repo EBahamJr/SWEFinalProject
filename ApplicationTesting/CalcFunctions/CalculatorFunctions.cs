@@ -18,7 +18,7 @@ namespace ApplicationTesting.CalcFunctions
         //getter and setters
         public float GetResult()
         {
-            return result;
+            return this.result;
         }
         public void SetA(float a)
         {
