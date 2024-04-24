@@ -1,32 +1,35 @@
-﻿namespace SWEFinalProject.Components.Functions
+﻿using System;
+using System.Diagnostics;
+
+namespace SWEFinalProject.Components.Functions
 {
     public class CalculatorFunctions
     {
         /*This program works as follows to allow the calcualtor to store and use data effectively. Set X, select the operation, set Y, then run the problem  */
 
 
-        private float a;
-        private float b;
+        private double a;
+        private double b;
 
-        private float result;
+        private double result;
         //getter and setters
-        public float GetResult()
+        public double GetResult()
         {
             return this.result;
         }
-        public void SetA(float a)
+        public void SetA(double a)
         {
             this.a = a;
         }
-        public void SetB(float b)
+        public void SetB(double b)
         {
             this.b = b;
         }
-        public float GetA()
+        public double GetA()
         {
             return a;
         }
-        public float GetB()
+        public double GetB()
         {
             return b;
         }
@@ -34,51 +37,70 @@
 
         //Functions to test
         //A and B function
-        public float CalcAdd()// +
+        public double CalcAdd()// +
         {
             result = a + b;
             return result;
         }
 
-        public float CalcSubtract()// -
+        public double CalcSubtract()// -
         {
             result = a - b;
             return result;
         }
 
-        public float CalcMultiply()//*
+        public double CalcMultiply()//*
         {
             result = a * b;
             return result;
         }
 
-        public float CalcDivide()// /
+        public double CalcDivide()// /
         {
-            result = a / b;
+            if (b == 0)
+            {
+                result = 0;
+                return 0;
+            }
+            else
+            {
+                result = (float)(a / b);
+            }
             return result;
         }
         
-        public float CalcEquals()// ==
+        public double CalcEquals()// ==
         {
-            //result = a / b;
+            string tempA = a.ToString("0.00000000");
+            string tempB = b.ToString("0.00000000");
+            if (tempA == tempB)
+            {
+                result = 1;
+            }
+            else
+            {
+                result = 0;
+            }
             return result;
         }
 
-        public float CalcPow()// ^
+        public double CalcPow()// ^
         {
-            //result = a / b;
+            result = Math.Pow(a, b);
             return result;
         }
 
-        public float CalcLog()// log
+        public double CalcLog()// log
         {
             //result = a / b;
+            result = Math.Log(a, b);
             return result;
         }
 
-        public float CalcSqRoot()// root
+        public double CalcRoot()// root
         {
             //result = a / b;
+            result = Math.Pow(a, 1/b);
             return result;
         }
 

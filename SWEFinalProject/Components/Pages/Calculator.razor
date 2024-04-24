@@ -115,13 +115,13 @@
     private bool aInval = false;
 
     private string resultTxt = "";
-    public float result = 0;
+    public double result = 0;
 
     private string temp1 = "";
     private string temp2 = "";
 
-    private float Anum = 0;
-    private float Bnum = 0;
+    private double Anum = 0;
+    private double Bnum = 0;
 
     public void clearButton()
     {
@@ -149,7 +149,7 @@
         temp1 = (string)changeEvent.Value;
         if (temp1 != "")
         {
-            aInval = !float.TryParse(temp1, out Anum);
+            aInval = !double.TryParse(temp1, out Anum);
         }
         else
         {
@@ -162,7 +162,7 @@
         temp2 = (string)changeEvent.Value;
         if (temp2 != "")
         {
-            bInval = !float.TryParse(temp2, out Bnum);
+            bInval = !double.TryParse(temp2, out Bnum);
         }
         else
         {
