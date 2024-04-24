@@ -1,7 +1,7 @@
 namespace EndToEndTesting
 {
     [TestClass]
-    public class UnitTest1 : PageTest
+    public class EndToEndTests : PageTest
     {
         [TestMethod]
         public async Task HomepageHasPlaywrightInTitleAndGetStartedLinkLinkingtoTheIntroPage()
