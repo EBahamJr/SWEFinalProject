@@ -1,4 +1,4 @@
-﻿@page "/calculator"
+﻿@page "/"
 @rendermode InteractiveServer
 
 <PageTitle>Calculator</PageTitle>
@@ -40,7 +40,7 @@
             background-color: lightgray;
         }
 
-        .result-container {
+        #result-container {
             display: flex;
             justify-content: center;
             border-style: solid;
@@ -82,7 +82,7 @@
         <div class="column">
             <div class="label container">A and B</div>
             <button type="button" class="button" value="AdditionButton" @onclick="AdditionButton">A + B</button>
-            <button type="button" class="button" value="AdditionButton" @onclick="AdditionButton">A - B</button>
+            <button type="button" class="button" value="AdditionButton" @onclick="SubtractionButton">A - B</button>
             <button type="button" class="button" value="AdditionButton" @onclick="AdditionButton">A * B</button>
             <button type="button" class="button" value="AdditionButton" @onclick="AdditionButton">A / B</button>
             <button type="button" class="button" value="AdditionButton" @onclick="AdditionButton">A == B</button>
@@ -104,7 +104,7 @@
 @code {
     //string s = Anum.text;
 
-    Functions.CalculatorFunctions myOperation = new();
+    CalculatorFunctions myOperation = new();
 
     private string CardColor = "lightgray";
     //lightgray
@@ -203,8 +203,8 @@
         if (!invalid)
         {
             setUpAB();
-            result = myOperation.CalcAdd();
-            updateResultTxtAB("+");
+            result = myOperation.CalcSubtract();
+            updateResultTxtAB("-");
         }
         else
         {
