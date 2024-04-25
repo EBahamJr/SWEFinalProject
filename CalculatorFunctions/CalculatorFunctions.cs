@@ -90,28 +90,57 @@ public class CalculatorFunctions
 
     public double CalcLog()// log
     {
-        //result = a / b;
         result = Math.Log(a, b);
         return result;
     }
 
     public double CalcRoot()// root
     {
-        //result = a / b;
         result = Math.Pow(a, 1 / b);
         return result;
     }
 
     //A only Function
+    public double CalcFactorial()// ! factorial
+    {
+        result = 1;
+        if (a != 0)
+        {
+            //factorials can't be decimals
+            int x = (int)a;
 
-    // !
+            for (int i = 0; i < x; i--)
+            {
+                result *= x - i;
+            }
+        }
+        return result;
+    }
 
-    // sin
+    public double CalcSin()// sin
+    {
+        result = Math.Sin(a);
+        return result;
+    }
 
-    // cos
+    public double CalcCos()// cos
+    {
+        result = Math.Cos(a);
+        return result;
+    }
 
     // tan
+    public double CalcTan()// tan
+    {
+        result = Math.Tan(a);
+        return result;
+    }
 
     // 1/A
+    public double CalcNegate()// 1/a
+    {
+        result = 1/a;
+        return result;
+    }
 }
 
