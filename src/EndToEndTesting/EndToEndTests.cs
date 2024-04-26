@@ -8,7 +8,7 @@ namespace EndToEndTesting
         [TestMethod]
         public async Task HomepageHasPlaywrightInTitleAndGetStartedLinkLinkingtoTheIntroPage()
         {
-            await Page.GotoAsync("https://playwright.dev");
+            await Page.GotoAsync("https://localhost:7237");
 
             // Expect a title "to contain" a substring.
             await Expect(Page).ToHaveTitleAsync(new Regex("Playwright"));

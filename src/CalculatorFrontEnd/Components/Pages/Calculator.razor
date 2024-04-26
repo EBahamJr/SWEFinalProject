@@ -150,7 +150,7 @@
                 <button type="button2" class="button" value="ClearButton" @onclick="ClearButton">clear</button>
             </div>
         </h1>
-        <div class="result-container" value="ResultBox">Result: @resultTxt</div>
+        <div class="result-container" value="ResultBox">@resultTxt</div>
         <form>
             <div class="flex-container2">
                 <div class="column">
@@ -199,7 +199,7 @@
     private bool bInval = false;
     private bool aInval = false;
 
-    private string resultTxt = "";
+    private string resultTxt = "Enter value(s) below and select an operation.";
     public double result = 0;
 
     private string temp1 = "";
@@ -214,7 +214,7 @@
         temp2 = "";
         Anum = 0;
         Bnum = 0;
-        resultTxt = "";
+        resultTxt = "Enter value(s) below and select an operation.";
         CardColor = "#FFECD7";
         TextColor = "#000000";
     }
@@ -223,11 +223,11 @@
     {
         resultTxt = 
         Anum + " " + functionSymbol + " " + Bnum +
-        " = " + result;
+        " = \r" + result;
     }
     public void UpdateResultTxtA(string functionSymbol)
     {
-        resultTxt = functionSymbol + " " + Anum + " = " + result;
+        resultTxt = functionSymbol + " " + Anum + " = \r" + result;
     }
 
     public void UpdateNumA(ChangeEventArgs changeEvent)
@@ -259,13 +259,15 @@
 
     public void SetUpAB()
     {
-        CardColor = "lightgray";
+        CardColor = "#FFECD7";
+        TextColor = "#000000";
         myOperation.SetA(Anum);
         myOperation.SetB(Bnum);
     }
     public void SetUpA()
     {
-        CardColor = "lightgray";
+        CardColor = "#FFECD7";
+        TextColor = "#000000";
         myOperation.SetA(Anum);
     }
 
