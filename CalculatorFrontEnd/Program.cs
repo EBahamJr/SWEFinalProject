@@ -1,4 +1,4 @@
-using SWEFinalProject.Components;
+using CalculatorFrontEnd.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 

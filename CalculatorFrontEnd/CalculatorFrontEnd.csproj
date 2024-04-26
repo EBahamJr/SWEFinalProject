@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CalculatorFunctions\CalculatorFunctions.csproj" />
+    <ProjectReference Include="..\src\CalculatorFunctions\CalculatorFunctions.csproj" />
   </ItemGroup>
 
 </Project>
