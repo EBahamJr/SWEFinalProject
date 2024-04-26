@@ -37,28 +37,32 @@ public class CalculatorFunctions
     //A and B function
     public double CalcAdd()// +
     {
+        //preq-ENGINE-3
         result = a + b;
         return result;
     }
 
     public double CalcSubtract()// -
     {
+        //preq-ENGINE-4
         result = a - b;
         return result;
     }
 
     public double CalcMultiply()//*
     {
+        //preq-ENGINE-5
         result = a * b;
         return result;
     }
 
     public double CalcDivide()// /
     {
+        //preq-ENGINE-7
         if (b == 0)
         {
-            result = 0;
-            return 0;
+            result = double.NaN; ;
+            return result;
         }
         else
         {
@@ -69,6 +73,7 @@ public class CalculatorFunctions
 
     public double CalcEquals()// ==
     {
+        //preq-ENGINE-8
         string tempA = a.ToString("0.00000000");
         string tempB = b.ToString("0.00000000");
         if (tempA == tempB)
@@ -84,62 +89,124 @@ public class CalculatorFunctions
 
     public double CalcPow()// ^
     {
+        //preq-ENGINE-9
         result = Math.Pow(a, b);
         return result;
     }
 
     public double CalcLog()// log
     {
-        result = Math.Log(a, b);
+        //preq-ENGINE-10
+        if (a != 0 && b != 0)
+        {
+            result = Math.Log(a, b);
+        }
+        else
+        {
+            result = double.NaN;
+        }
         return result;
     }
 
     public double CalcRoot()// root
     {
-        result = Math.Pow(a, 1 / b);
+        //preq-ENGINE-11
+        if (b != 0)
+        {
+            result = Math.Pow(a, 1 / b);
+        }
+        else
+        {
+            result = double.NaN;
+        }
         return result;
     }
 
     //A only Function
     public double CalcFactorial()// ! factorial
     {
+        //preq-ENGINE-12
         result = 1;
         if (a != 0)
         {
             //factorials can't be decimals
             int x = (int)a;
 
-            for (int i = 0; i < x; i--)
+            for (int i = 0; i < Math.Abs(x); i++)
             {
-                result *= x - i;
+                result *= Math.Abs(x) - i;
+            }
+
+            if (a < 0 && x%2 != 0)
+            {
+                result = -result;
             }
         }
+        Console.WriteLine(result.ToString());
         return result;
     }
 
     public double CalcSin()// sin
     {
-        result = Math.Sin(a);
-        return result;
+        //preq-ENGINE-13
+        if (Math.Abs(a) != 360)
+        {
+            float r = MathF.Sin((float)(a * Math.PI / 180));
+            result = float.Parse(r.ToString());
+            Console.WriteLine(result);
+        }
+        else
+        {
+            result = 0;
+        }
+        return Math.Round(result);
     }
 
     public double CalcCos()// cos
     {
-        result = Math.Cos(a);
+        //preq-ENGINE-14
+        if (Math.Abs(a) != 360)
+        {
+            float r = MathF.Cos((float)(a * Math.PI / 180));
+            result = float.Parse(r.ToString());
+            Console.WriteLine(result);
+        }
+        else
+        {
+            result = 1;
+        }
         return result;
     }
 
     // tan
     public double CalcTan()// tan
     {
-        result = Math.Tan(a);
+        //preq-ENGINE-15
+        if (Math.Abs(a) != 360)
+        {
+            float r = MathF.Tan((float)(a * Math.PI / 180));
+            result = float.Parse(r.ToString());
+            Console.WriteLine(result);
+        }
+        else
+        {
+            result = 0;
+        }
         return result;
     }
 
     // 1/A
     public double CalcNegate()// 1/a
     {
-        result = 1/a;
+        //preq-ENGINE-16
+        if (a == 0)
+        {
+            result = double.NaN;
+        }
+        else
+        {
+            result = 1 / a;
+        }
         return result;
     }
 }

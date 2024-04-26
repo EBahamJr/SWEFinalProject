@@ -16,101 +16,367 @@ public class FunctionTests
 
     //A and B Functions
     [Test]
-    public void CalcAddTest1() //Coverage Testing additon
+    //preq-UNIT-TEST-2
+    public void CalcAdd_Doubles_ReturnCorrect() //Coverage Testing additon
     {
+        //Arrange
         FormatShortcut(5.5f, -3.15f);
+        //Act
         functions.CalcAdd();
+        //Assert
         Assert.That(2.35f == functions.GetResult());
     }
 
     [Test]
-    public void CalcSubTest1() //Coverage Testing Subtraction
+    //preq-UNIT-TEST-3
+    public void CalcSubtract_Doubles_ReturnCorrect() //Coverage Testing Subtraction
     {
+        //Arrange
         FormatShortcut(27.93f, 4f);
+        //Act
         functions.CalcSubtract();
+        //Assert
         Assert.That(23.93f == functions.GetResult());
     }
 
     [Test]
-    public void CalcMultTest1() // Testing a middle of the road test case
+    //preq-UNIT-TEST-4
+    public void CalcMultiply_Doubles_ReturnCorrect() // Testing a middle of the road test case
     {
+        //Arrange
         FormatShortcut(8.5f, 2);
+        //Act
         functions.CalcMultiply();
+        //Assert
         Assert.That(17f == functions.GetResult());
-    }
-    [Test]
-    public void CalcMultTest2() // Testing a middle of the road test case with negative numbers
-    {
-        FormatShortcut(8.5f, -2);
-        functions.CalcMultiply();
-        Assert.That(-17f == functions.GetResult());
     }
 
     [Test]
-    public void CalcDivTest1() // Testing middle of the road test case
+    //preq-UNIT-TEST-5
+    public void CalcDivide_Doubles_ReturnCorrect() // Testing middle of the road test case
     {
+        //Arrange
         FormatShortcut(3, 9);
+        //Act
         functions.CalcDivide();
+        //Assert
         Assert.That(0.33333333f == functions.GetResult());
     }
     [Test]
-    public void CalcDivTest2() //Testing input of 0 on b
+    //preq-UNIT-TEST-6
+    public void CalcDivide_DivideBy0_ReturnNaN() //Testing input of 0 on b
     {
+        //Arrange
         FormatShortcut(8, 0);
+        //Act
         functions.CalcDivide();
-        Assert.That(0f == functions.GetResult());
+        //Assert
+        Assert.That(double.IsNaN(functions.GetResult()));//returns double.NaN
     }
     [Test]
-    public void CalcDivTest3() //Testing input of 0 on a
+    public void CalcDivide_DivideZeroByNumber_ReturnCorrect() //Testing input of 0 on a
     {
+        //Arrange
         FormatShortcut(0, 1);
+        //Act
         functions.CalcDivide();
+        //Assert
         Assert.That(0f == functions.GetResult());
     }
 
     [Test]
-    public void CalcEqualsTest1() //Checking Equals test limit
+    //preq-UNIT-TEST-7
+    public void CalcEquals_Doubles_ReturnTrueToEightDigits() //Checking Equals test limit
     {
+        //Arrange
         FormatShortcut(0.333333331f, 0.333333332f);
+        //Act
         functions.CalcEquals();
+        //Assert
         Assert.That(1f == functions.GetResult());
     }
     [Test]
-    public void CalcEqualsTest2() //Checking Equals test limit
+    public void CalcEquals_Doubles_ReturnFalseToSevenDigits() //Checking Equals test limit
     {
+        //Arrange
         FormatShortcut(0.33333334d, 0.33333333d);
+        //Act
         functions.CalcEquals();
+        //Assert
         Assert.That(0f == functions.GetResult());
     }
 
     [Test]
-    public void CalcPowTest1() //Checking Pow Test Positive b
+    //preq-UNIT-TEST-8
+    public void CalcPow_Doubles_ReturnCorrect() //Checking Pow Test Positive b
     {
+        //Arrange
         FormatShortcut(2, 3);
+        //Act
         functions.CalcPow();
+        //Assert
         Assert.That(8f == functions.GetResult());
     }
     [Test]
-    public void CalcPowTest2() //Checking Pow Test Larger a
+    public void CalcPow_NegativeDoubles_ReturnCorrect() //Checking Pow Test Negative b
     {
-        FormatShortcut(5, 2);
-        functions.CalcPow();
-        Assert.That(25f == functions.GetResult());
-    }
-    [Test]
-    public void CalcPowTest3() //Checking Pow Test Negative b
-    {
+        //Arrange
         FormatShortcut(5, -3);
+        //Act
         functions.CalcPow();
+        //Assert
         Assert.That(0.008 == functions.GetResult());
     }
 
     [Test]
-    public void CalcLogTest3() //Checking Log Test Negative b
+    //preq-UNIT-TEST-9
+    public void CalcLog_Doubles_ReturnCorrect() //Checking Log Test Positive b
     {
+        //Arrange
         FormatShortcut(8, 2);
+        //Act
         functions.CalcLog();
-        Assert.That(3 == functions.GetResult()); //not done
+        //Assert
+        Assert.That(3 == functions.GetResult());
     }
+    [Test]
+    //preq-UNIT-TEST-10
+    public void CalcLog_ZeroA_ReturnNaN() //Checking Log Test Positive b
+    {
+        //Arrange
+        FormatShortcut(0, 2);
+        //Act
+        functions.CalcLog();
+        //Assert
+        Assert.That(double.IsNaN(functions.GetResult()));//automatically returns NaN
+    }
+    [Test]
+    //preq-UNIT-TEST-11
+    public void CalcLog_ZeroB_ReturnNaN() //Checking Log Test Positive b
+    {
+        //Arrange
+        FormatShortcut(8, 0);
+        //Act
+        functions.CalcLog();
+        //Assert
+        Assert.That(double.IsNaN(functions.GetResult()));//automatically return NaN
+    }
+
+    [Test]
+    //preq-UNIT-TEST-12
+    public void CalcRoot_Doubles_ReturnCorrect() //Checking Root Test  b
+    {
+        //Arrange
+        FormatShortcut(8, 3);
+        //Act
+        functions.CalcRoot();
+        //Assert
+        Assert.That(2 == functions.GetResult());
+    }
+    [Test]
+    //preq-UNIT-TEST-13
+    public void CalcRoot_ZeroB_ReturnNaN() //Checking Root Test  b
+    {
+        //Arrange
+        FormatShortcut(8, 0);
+        //Act
+        functions.CalcRoot();
+        //Assert
+        Assert.That(double.IsNaN(functions.GetResult()));
+    }
+
     //A only Functions
+    [Test]
+    //preq-UNIT-TEST-14
+    public void CalcFactorial_Double_ReturnCorrect() //Checking Factorial Test for A
+    {
+        //Arrange
+        functions.SetA(5);
+        //Act
+        functions.CalcFactorial();
+        //Assert
+        Assert.That(120 == functions.GetResult());
+    }
+    [Test]
+    public void CalcFactorial_NegativeDouble_ReturnCorrect() //Checking Factorial Test for Negative A
+    {
+        //Arrange
+        functions.SetA(-5);
+        //Act
+        functions.CalcFactorial();
+        //Assert
+        Assert.That(-120 == functions.GetResult());
+    }
+    [Test]
+    //preq-UNIT-TEST-15
+    public void CalcFactorial_Zero_ReturnOne() //Checking Factorial Test for 0
+    {
+        //Arrange
+        functions.SetA(0);
+        //Act
+        functions.CalcFactorial();
+        //Assert
+        Assert.That(1 == functions.GetResult());
+    }
+
+    [Test]
+    //preq-UNIT-TEST-16
+    public void CalcSin_Double_ReturnCorrect() //Checking Sin Test for Negative A
+    {
+        //Arrange
+        functions.SetA(360);
+        //Act
+        functions.CalcSin();
+        //Assert
+        Assert.That(0 == functions.GetResult());
+    }
+    [Test]
+    public void CalcSin_Negative360_ReturnCorrect() //Checking Sin Test for Negative A
+    {
+        //Arrange
+        functions.SetA(-360);
+        //Act
+        functions.CalcSin();
+        //Assert
+        Assert.That(0 == functions.GetResult());
+    }
+
+    [Test]
+    public void CalcSin_Zero_ReturnCorrect() //Checking Sin Test for Negative A
+    {
+        //Arrange
+        functions.SetA(0);
+        //Act
+        functions.CalcSin();
+        //Assert
+        Assert.That(0 == functions.GetResult());
+    }
+
+    [Test]
+    public void CalcSin_One_ReturnCorrect() //Checking Sin Test for Negative A
+    {
+        //Arrange
+        functions.SetA(1);
+        //Act
+        functions.CalcSin();
+        //Assert
+        Assert.That(0.017452405765652657 == functions.GetResult());
+    }
+
+    [Test]
+    //preq-UNIT-TEST-17
+    public void CalcCos_Double_ReturnCorrect() //Checking Cos Test for Negative A
+    {
+        //Arrange
+        functions.SetA(360);
+        //Act
+        functions.CalcCos();
+        //Assert
+        Assert.That(1 == functions.GetResult());
+    }
+    [Test]
+    public void CalcCos_Negtive360_ReturnCorrect() //Checking Cos Test for Negative A
+    {
+        //Arrange
+        functions.SetA(-360);
+        //Act
+        functions.CalcCos();
+        //Assert
+        Assert.That(1 == functions.GetResult());
+    }
+    [Test]
+    public void CalcCos_Zero_ReturnCorrect() //Checking Cos Test for Negative A
+    {
+        //Arrange
+        functions.SetA(0);
+        //Act
+        functions.CalcCos();
+        //Assert
+        Assert.That(1 == functions.GetResult());
+    }
+    [Test]
+    public void CalcCos_One_ReturnCorrect() //Checking Cos Test for Negative A
+    {
+        //Arrange
+        functions.SetA(1);
+        //Act
+        functions.CalcCos();
+        //Assert
+        Assert.That(0.9998477101325989 == functions.GetResult());
+    }
+
+    [Test]
+    //preq-UNIT-TEST-18
+    public void CalcTan_Double_ReturnCorrect() //Checking Tan Test for Negative A
+    {
+        //Arrange
+        functions.SetA(360);
+        //Act
+        functions.CalcTan();
+        //Assert
+        Assert.That(0 == functions.GetResult());
+    }
+    [Test]
+    public void CalcTan_Negative360_ReturnCorrect() //Checking Tan Test for Negative A
+    {
+        //Arrange
+        functions.SetA(-360);
+        //Act
+        functions.CalcTan();
+        //Assert
+        Assert.That(0 == functions.GetResult());
+    }
+    [Test]
+    public void CalcTan_Zero_ReturnCorrect() //Checking Tan Test for Negative A
+    {
+        //Arrange
+        functions.SetA(0);
+        //Act
+        functions.CalcTan();
+        //Assert
+        Assert.That(0 == functions.GetResult());
+    }
+    [Test]
+    public void CalcTan_One_ReturnCorrect() //Checking Tan Test for Negative A
+    {
+        //Arrange
+        functions.SetA(1);
+        //Act
+        functions.CalcTan();
+        //Assert
+        Assert.That(0.01745506562292576 == functions.GetResult());
+    }
+
+    [Test]
+    //preq-UNIT-TEST-19
+    public void CalcInverse_Double_ReturnCorrect() //Checking Tan Test for Negative A
+    {
+        //Arrange
+        functions.SetA(8);
+        //Act
+        functions.CalcNegate();
+        //Assert
+        Assert.That(0.125 == functions.GetResult());
+    }
+    [Test]
+    public void CalcInverse_Negative_ReturnCorrect() //Checking Tan Test for Negative A
+    {
+        //Arrange
+        functions.SetA(-4);
+        //Act
+        functions.CalcNegate();
+        //Assert
+        Assert.That(-0.25 == functions.GetResult());
+    }
+    [Test]
+    //preq-UNIT-TEST-20
+    public void CalcInverse_Zero_ReturnNaN() //Checking Tan Test for Negative A
+    {
+        //Arrange
+        functions.SetA(0);
+        //Act
+        functions.CalcNegate();
+        //Assert
+        Assert.That(double.IsNaN(functions.GetResult()));
+    }
 }
