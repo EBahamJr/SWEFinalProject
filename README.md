@@ -33,7 +33,23 @@ To prepare your environment to execute this application:
 
 # Executing the Web Application
 To prepare your environment to execute this application from the command line:
- 1. 
+ 1. Navigate to the CalculatorWebApp directory in terminal/command prompt. (ex: C:\Users\\`user`\\RiderProjects\swe3643-spring2024-project\src\CalculatorWebApp)
+ 2. Enter command `dotnet run` into the terminal.
+ 3. Terminal will output the localhost address (typically http://localhost:5079)
+```
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5113
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /Users/tagan/Documents/SchoolFiles/SoftwareTestingQA/SemesterProject/WebApp/swe3643-spring2024-project/src/CalculatorWebApp
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+```
+ 4. Click the local host address link or type it into the address bar of your browser.
+ 5. `ctrl+c` to terminate the application.
 # Executing Unit Test
 # Reviewing Unit Test Coverage
 # Executing End-To-End Tests
