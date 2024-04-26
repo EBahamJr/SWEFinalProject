@@ -27,9 +27,13 @@ To prepare your environment to execute this application:
  1. [Install the 2022 c# runtime for your system.](https://visualstudio.microsoft.com/downloads/)
  2. Clone This Repository
  3. Open in Visual Studio
- 4. Select CalculatorFrontEnd
+ 4. Right Click on CalculatorFrontEnd in the solutions explorer and set it as the start up project.
+ 5. In the top-middle of the screen, click ![image](https://github.com/EBahamJr/SWEFinalProject/assets/40864286/eb18b86f-717d-4fb6-8a24-f9aa0fe9733d)
+ 6. Enjoy your new calculator!
 
 # Executing the Web Application
+To prepare your environment to execute this application from the command line:
+ 1. 
 # Executing Unit Test
 # Reviewing Unit Test Coverage
 # Executing End-To-End Tests
