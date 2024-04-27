@@ -150,36 +150,36 @@
                 <button type="button2" class="button" value="ClearButton" @onclick="ClearButton">clear</button>
             </div>
         </h1>
-        <div class="result-container" value="ResultBox">@resultTxt</div>
+        <div id="Results" class="result-container" title="Results" value="ResultBox">@resultTxt</div>
         <form>
             <div class="flex-container2">
                 <div class="column">
-                    <p style="text-align: left;font-weight: bold;">Input A:</p> <input class="inputfield" type="text" id="Anum" name="Anum" @bind="@temp1" @oninput="UpdateNumA">
+                    <label style="text-align: left;font-weight: bold;">Input A:</label> <input title="Input A" class="inputfield" type="text" id="Anum" name="Anum" @bind="@temp1" @oninput="UpdateNumA">
                 </div>
                 <div class="column">
-                    <p style="text-align: left;font-weight: bold;">Input B:</p> <input class="inputfield" type="text" id="Bnum" name="Bnum" @bind="@temp2" @oninput="UpdateNumB">
+                    <label style="text-align: left;font-weight: bold;">Input B:</label> <input title="Input B" class="inputfield" type="text" id="Bnum" name="Bnum" @bind="@temp2" @oninput="UpdateNumB">
                 </div>
             </div>
         </form>
         <div class="flex-container">
             <div class="column">
                 <div class="label container">A and B</div>
-                <button type="button" class="button" @onclick="AdditionButton">A + B</button>
-                <button type="button" class="button" @onclick="SubtractionButton">A - B</button>
-                <button type="button" class="button" @onclick="MultiplicationButton">A * B</button>
-                <button type="button" class="button" @onclick="DivisionButton">A / B</button>
-                <button type="button" class="button" @onclick="EquateButton">A == B</button>
-                <button type="button" class="button" @onclick="PowButton">A ^ B</button>
-                <button type="button" class="button" @onclick="LogButton">A log B</button>
-                <button type="button" class="button" @onclick="RootButton">A root B</button>
+                <button type="button" id="Add" class="button" @onclick="AdditionButton">A + B</button>
+                <button id="Subtract" type="button" class="button" @onclick="SubtractionButton">A - B</button>
+                <button id="Multiply" type="button" class="button" @onclick="MultiplicationButton">A * B</button>
+                <button id="Divide" type="button" class="button" @onclick="DivisionButton">A / B</button>
+                <button id="Equate" type="button" class="button" @onclick="EquateButton">A == B</button>
+                <button id="Exponent" type="button" class="button" @onclick="PowButton">A ^ B</button>
+                <button id="Log" type="button" class="button" @onclick="LogButton">A log B</button>
+                <button id="Root" type="button" class="button" @onclick="RootButton">A root B</button>
             </div>
             <div class="column">
                 <div class="label container">A only</div>
-                <button type="button" class="button" value="AbsoluteValue" @onclick="FactorialButton">A!</button>
-                <button type="button" class="button" value="AbsoluteValue" @onclick="SinButton">sin A</button>
-                <button type="button" class="button" value="AbsoluteValue" @onclick="CosButton">cos A</button>
-                <button type="button" class="button" value="AbsoluteValue" @onclick="TanButton">tan A</button>
-                <button type="button" class="button" value="AbsoluteValue" @onclick="InverseButton">1 / A</button>
+                <button id="Factorial" type="button" class="button" value="AbsoluteValue" @onclick="FactorialButton">A!</button>
+                <button id="Sin" type="button" class="button" value="AbsoluteValue" @onclick="SinButton">sin A</button>
+                <button id="Cos" type="button" class="button" value="AbsoluteValue" @onclick="CosButton">cos A</button>
+                <button id="Tan" type="button" class="button" value="AbsoluteValue" @onclick="TanButton">tan A</button>
+                <button id="Inverse" type="button" class="button" value="AbsoluteValue" @onclick="InverseButton">1 / A</button>
             </div>
         </div>
     </div>
@@ -273,7 +273,7 @@
 
     public void invalidEntry()
     {
-        resultTxt = "Invalid Entry";
+        resultTxt = "Invalid Input, Numbers Only";
         CardColor = "#B70F0A";
         TextColor = "#FFFFFF";
     }
@@ -329,9 +329,9 @@
     }
     private void DivisionButton()// /
     {
-        if (Bnum != 0)
+        if (!invalid)
         {
-            if (!invalid)
+            if (Bnum != 0)
             {
                 SetUpAB();
                 myOperation.CalcDivide();
@@ -340,12 +340,12 @@
             }
             else
             {
-                invalidEntry();
+                invalidEntry("Not a Number");
             }
         }
         else
         {
-            invalidEntry("Not a Number");
+            invalidEntry();
         }
     }
     private void EquateButton()// ==
@@ -380,45 +380,45 @@
 
     private void LogButton()// log
     {
-        if (Anum <= 0 || Bnum == 0)
+        if (!invalid)
         {
-            invalidEntry("Not a Number");
-        }
-        else
-        {
-            if (!invalid)
+            if (Anum <= 0 || Bnum == 0)
+            {
+                invalidEntry("Not a Number");
+            }
+            else
             {
                 SetUpAB();
                 myOperation.CalcLog();
                 result = myOperation.GetResult();
                 UpdateResultTxtAB("log");
             }
-            else
-            {
-                invalidEntry();
-            }
+        }
+        else
+        {
+            invalidEntry();
         }
     }
 
     private void RootButton()// root
     {
-        if (Bnum == 0)
+        if (!invalid)
         {
-            invalidEntry("Not a Number");
-        }
-        else
-        {
-            if (!invalid)
+            if (Bnum == 0)
+            {
+                invalidEntry("Not a Number");
+            }
+            else
             {
                 SetUpAB();
                 myOperation.CalcRoot();
                 result = myOperation.GetResult();
                 UpdateResultTxtAB("root");
             }
-            else
-            {
-                invalidEntry();
-            }
+        }
+        else
+        {
+            invalidEntry();
         }
     }
 
@@ -486,23 +486,23 @@
 
     private void InverseButton()// 1/A
     {
-        if (Anum == 0)
+        if (!invalid)
         {
-            invalidEntry("Not a Number");
-        }
-        else
-        {
-            if (!invalid)
+            if (Anum == 0)
+            {
+                invalidEntry("Not a Number");
+            }
+            else
             {
                 SetUpA();
                 myOperation.CalcNegate();
                 result = myOperation.GetResult();
                 UpdateResultTxtA("1/");
             }
-            else
-            {
-                invalidEntry();
-            }
+        }
+        else
+        {
+            invalidEntry();
         }
     }
 }

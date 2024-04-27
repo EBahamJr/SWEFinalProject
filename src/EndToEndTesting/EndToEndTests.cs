@@ -1,3 +1,4 @@
+using Microsoft.Playwright;
 using NUnit.Framework;
 
 namespace EndToEndTesting
@@ -6,34 +7,85 @@ namespace EndToEndTesting
     public class EndToEndTests : PageTest
     {
         [TestMethod]
-        public async Task HomepageHasPlaywrightInTitleAndGetStartedLinkLinkingtoTheIntroPage()
+        //preq-E2E-TEST-5
+        public async Task CalculatorFrontEnd_TabName_Calculator()
         {
-            await Page.GotoAsync("https://localhost:7237");
-
-            // Expect a title "to contain" a substring.
-            await Expect(Page).ToHaveTitleAsync(new Regex("Playwright"));
-
-            // create a locator
-            var getStarted = Page.Locator("text=Get Started");
-
-            // Expect an attribute "to be strictly equal" to the value.
-            await Expect(getStarted).ToHaveAttributeAsync("href", "/docs/intro");
-
-            // Click the get started link.
-            await getStarted.ClickAsync();
-
-            // Expects the URL to contain intro.
-            await Expect(Page).ToHaveURLAsync(new Regex(".*intro"));
+            await Page.GotoAsync("http://localhost:5079/");
+            await Expect(Page).ToHaveTitleAsync(new Regex("Calculator"));            
         }
-        [Test]
-        public async Task Test1()
+
+        [TestMethod]
+        //preq-E2E-TEST-6
+        public async Task CalculatorFrontEnd_AdditonFunction_ShowsCorrectExpression()
         {
-            const string pageTitle = "Calculator";
+            await Page.GotoAsync("http://localhost:5079/");
 
-            await Page.GotoAsync("https://localhost:7237/");
+            var inputA = Page.Locator("id=Anum");
+            var inputB = Page.Locator("id=Bnum");
+            var add = Page.GetByText("A + B");
+            var results = Page.Locator("id=Results");
 
-            await Expect(Page).ToHaveTitleAsync(pageTitle);
+            await inputA.FillAsync("5");
+            await inputB.FillAsync("3");
+            await add.ClickAsync();
+
+            await Expect(results).ToContainTextAsync("5 + 3 = 8");
         }
-        //cutting losses
+
+        [TestMethod]
+        //preq-E2E-TEST-7
+        public async Task CalculatorFrontEnd_DivisionFunction_ReturnsNaN()
+        {
+            await Page.GotoAsync("http://localhost:5079/");
+
+            var inputA = Page.Locator("id=Anum");
+            var inputB = Page.Locator("id=Bnum");
+            var add = Page.GetByText("A / B");
+            var results = Page.Locator("id=Results");
+
+            await inputA.FillAsync("5");
+            await inputB.FillAsync("0");
+            await add.ClickAsync();
+
+            await Expect(results).ToContainTextAsync("Not a Number");
+        }
+
+        [TestMethod]
+        //preq-E2E-TEST-8
+        public async Task CalculatorFrontEnd_BadInput_ReturnsInvalid()
+        {
+            await Page.GotoAsync("http://localhost:5079/");
+
+            var inputA = Page.Locator("id=Anum");
+            var inputB = Page.Locator("id=Bnum");
+            var divide = Page.GetByText("A / B");
+            var results = Page.Locator("id=Results");
+
+            await inputA.FillAsync("5");
+            await inputB.FillAsync("fifteen");
+            await divide.ClickAsync();
+
+            await Expect(results).ToContainTextAsync("Invalid Input, Numbers Only");
+        }
+
+        [TestMethod]
+        //preq-E2E-TEST-8
+        public async Task CalculatorFrontEnd_ClearButton_DefaultState()
+        {
+            await Page.GotoAsync("http://localhost:5079/");
+
+            var inputA = Page.Locator("id=Anum");
+            var inputB = Page.Locator("id=Bnum");
+            var add = Page.GetByText("A + B");
+            var clear = Page.GetByText("clear");
+            var results = Page.Locator("id=Results");
+
+            await inputA.FillAsync("5");
+            await inputB.FillAsync("5");
+            await add.ClickAsync();
+            await clear.ClickAsync();
+
+            await Expect(results).ToContainTextAsync("Enter value(s) below and select an operation.");
+        }
     }
 }
