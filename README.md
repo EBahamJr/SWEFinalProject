@@ -66,6 +66,9 @@ Disclaimer: This is excluding unused getter statements within the calculator fun
 ![image](https://github.com/EBahamJr/SWEFinalProject/assets/40864286/5f5b364c-9beb-4bc8-af6e-eeb641149ec6)
 
 # Executing End-To-End Tests
-
+ 1. Navigate back to the CalculatorFrontEnd directory in command prompt. (\\\\SWEFinalProject\src\CalculatorFrontEnd)
+ 2. do `dotnet run`
+ 3. Go back to EndToEndTesting in terminal. (\\\\SWEFinalProject\src\EndToEndTesting)
+ 4. run `dotnet test` (may need to run twice, tends to miss-input the first box on the first attempt)
 
 # Final Video Presentation
