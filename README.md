@@ -31,24 +31,32 @@ To prepare your environment to execute this application:
  5. In the top-middle of the screen, click ![image](https://github.com/EBahamJr/SWEFinalProject/assets/40864286/eb18b86f-717d-4fb6-8a24-f9aa0fe9733d)
  6. Enjoy your new calculator!
 To configure Playwright for end-to-end testing:
-  1. 
+ 1. Find the EndToEndTesting directory in terminal. (\\\\SWEFinalProject\src\EndToEndTesting)
+ 2. do `dotnet add package Microsoft.Playwright.NUnit`
+ 3. then do `dotnet build`
+ 4. [Ensure you have powershell downloaded](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4)
+ 6. run `pwsh bin/Debug/net8.0/playwright.ps1 install` (Ensure net8.0 is replaced with your version of .net)
+To Run the End To End Tests
+ 1. Navigate back to the CalculatorFrontEnd directory in command prompt. (\\\\SWEFinalProject\src\CalculatorFrontEnd)
+ 2. do `dotnet run`
+ 3. Go back to 
 
 # Executing the Web Application
 To prepare your environment to execute this application from the command line:
- 1. Navigate to the CalculatorFrontEnd directory in terminal/command prompt. (\\\\SWEFinalProject\src\CalculatorFrontEnd)
- 2. Enter command `dotnet run` into the terminal.
- 3. Terminal will output the localhost address (typically http://localhost:5079)
+ 1. Go to the CalculatorFrontEnd folder in command prompt. (\\\\SWEFinalProject\src\CalculatorFrontEnd)
+ 2. do `dotnet run`
+ 3. Terminal will output the address mixed in with some other information (should be http://localhost:5079).
 ```
 info: Microsoft.Hosting.Lifetime[14]
       Now listening on: http://localhost:5079
 etc, etc, etc
 ```
- 4. Click the local host address link or type it into the address bar of your browser. (Reminder! it's http not https)
+ 4. Put it into the address bar of your chosen browser. (Reminder! it's http not https)
  6. `ctrl+c` to terminate the application.
 
 # Executing Unit Test
 To prepare your environment to execute this application from the command line:
- 1. Navigate to the CalculatorUnitTests directory in terminal/command prompt. (ex: C:\Users\\`user`\\SWEFinalProject\src\CalculatorUnitTests)
+ 1. Go to the CalculatorUnitTests folder in command prompt. (ex: C:\Users\\`user`\\SWEFinalProject\src\CalculatorUnitTests)
  2. Enter command `dotnet test` into the terminal.
  6. The Terminal will spit out most of the test data you need
 
