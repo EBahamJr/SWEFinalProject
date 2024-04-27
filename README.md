@@ -70,5 +70,19 @@ Disclaimer: This is excluding unused getter statements within the calculator fun
  2. do `dotnet run`
  3. Go back to EndToEndTesting in terminal. (\\\\SWEFinalProject\src\EndToEndTesting)
  4. run `dotnet test` (may need to run twice, tends to miss-input the first box on the first attempt)
+EX:
+```
+ Determining projects to restore...
+  All projects are up-to-date for restore.
+  EndToEndTesting -> C:\Users\ejbah\source\repos\SWEFinalProject\src\EndToEndTesting\bin\Debug\net8.0\EndToEndTesting.d
+  ll
+Test run for C:\Users\ejbah\source\repos\SWEFinalProject\src\EndToEndTesting\bin\Debug\net8.0\EndToEndTesting.dll (.NETCoreApp,Version=v8.0)
+Microsoft (R) Test Execution Command Line Tool Version 17.8.0 (x64)
+Copyright (c) Microsoft Corporation.  All rights reserved.
 
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:     5, Skipped:     0, Total:     5, Duration: 2 s - EndToEndTesting.dll (net8.0)
+```
 # Final Video Presentation
