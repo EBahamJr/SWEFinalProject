@@ -39,7 +39,8 @@ To configure Playwright for end-to-end testing:
 To Run the End To End Tests
  1. Navigate back to the CalculatorFrontEnd directory in command prompt. (\\\\SWEFinalProject\src\CalculatorFrontEnd)
  2. do `dotnet run`
- 3. Go back to 
+ 3. Go back to EndToEndTesting in terminal. (\\\\SWEFinalProject\src\EndToEndTesting)
+ 4. run `dotnet test` (may need to run twice, tends to miss-input the first box on the first attempt)
 
 # Executing the Web Application
 To prepare your environment to execute this application from the command line:
