@@ -15,7 +15,7 @@ This repository contains the files and associated test for my web based calculat
 Eric Baham Jr. as a solo act.
 
 # Architecture
-Each piece of this project references only what is needs as per the requirements. The Calculator Functions class contains all of the code needed to make the calculator function. This is referenced by two things for different reasons but doesn't depend on any other classes for it to function. The Calculator Unit Tests class references the Calculator Functions class to run the necessary tests on it's individual pieces. The Calculator front end class references the Calculator Functions class to use it's methods in it's html to give an interface to the functionality it provides. Finally, the End to End Testing class doesn't reference anything directly as it's meant to test directly on the resulting webpage and therefore needs no dependancies, though I don't believe that it's functional at this point in time.
+Each piece of this project references only what is needs as per the requirements. The Calculator Functions class contains all of the code needed to make the calculator function. This is referenced by two things for different reasons but doesn't depend on any other classes for it to function. The Calculator Unit Tests class references the Calculator Functions class to run the necessary tests on it's individual pieces. The Calculator front end class references the Calculator Functions class to use it's methods in it's html to give an interface to the functionality it provides. Finally, the End to End Testing class doesn't reference anything directly as it's meant to test directly on the resulting webpage and therefore needs no dependancies. As long as the target port is correct.
 
 ![image](https://github.com/EBahamJr/SWEFinalProject/assets/40864286/97f09eab-c548-4eb1-b5c6-8eeb6eceb660)
 
@@ -39,19 +39,22 @@ To prepare your environment to execute this application from the command line:
 ```
 info: Microsoft.Hosting.Lifetime[14]
       Now listening on: http://localhost:5079
-info: Microsoft.Hosting.Lifetime[0]
-      Application started. Press Ctrl+C to shut down.
-info: Microsoft.Hosting.Lifetime[0]
-      Hosting environment: Development
-info: Microsoft.Hosting.Lifetime[0]
-      Content root path: /Users/ejbah\sources\repos\SWEFinalProject\src\CalculatorFrontEnd
-warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
-      Failed to determine the https port for redirect.
+etc, etc, etc
 ```
  4. Click the local host address link or type it into the address bar of your browser. (Reminder! it's http not https)
  6. `ctrl+c` to terminate the application.
+
 # Executing Unit Test
+To prepare your environment to execute this application from the command line:
+ 1. Navigate to the CalculatorUnitTests directory in terminal/command prompt. (ex: C:\Users\\`user`\\SWEFinalProject\src\CalculatorUnitTests)
+ 2. Enter command `dotnet test` into the terminal.
+ 6. The Terminal will spit out most of the test data you need
 
 # Reviewing Unit Test Coverage
+Disclaimer: This is excluding unused getter statements within the calculator functions class
+![image](https://github.com/EBahamJr/SWEFinalProject/assets/40864286/5f5b364c-9beb-4bc8-af6e-eeb641149ec6)
+
 # Executing End-To-End Tests
+
+
 # Final Video Presentation
